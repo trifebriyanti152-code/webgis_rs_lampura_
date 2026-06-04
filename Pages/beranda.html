@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebGIS RS Lampung Utara</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+body{
+    background:#f5f7fa;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    padding:15px 30px;
+    border-bottom:1px solid #ddd;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:20px;
+    font-weight:bold;
+    color:#1565c0;
+}
+.logo-icon{
+    width:42px;
+    height:42px;
+    flex-shrink:0;
+}
+.menu{
+    display:flex;
+    gap:10px;
+}
+.menu a{
+    text-decoration:none;
+    color:#333;
+    padding:10px 20px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    transition:0.3s;
+}
+.menu a:hover{
+    background:#1565c0;
+    color:white;
+}
+.btn-home{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    background:#1565c0;
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
+    transition:0.3s;
+    flex-shrink:0;
+    font-size:20px;
+}
+.btn-home:hover{
+    background:#0d47a1;
+    transform:scale(1.05);
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(135deg,#1565c0,#42a5f5);
+    color:white;
+    padding:60px 50px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    min-height:320px;
+}
+.hero-text{
+    flex:1;
+    max-width:55%;
+}
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.2);
+    margin-bottom:20px;
+    font-weight:bold;
+    font-size:14px;
+}
+.hero h1{
+    font-size:40px;
+    margin-bottom:20px;
+    line-height:1.3;
+}
+.hero p{
+    font-size:17px;
+    line-height:1.7;
+    opacity:0.92;
+}
+.hero-illustration{
+    flex:0 0 380px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* STATISTIK */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    background:white;
+    box-shadow:0 2px 5px rgba(0,0,0,0.08);
+}
+.stat-box{
+    text-align:center;
+    padding:30px;
+    border-right:1px solid #ddd;
+}
+.stat-box:last-child{
+    border-right:none;
+}
+.stat-box h2{
+    color:#1565c0;
+    font-size:40px;
+    margin-bottom:8px;
+}
+.stat-box p{
+    color:#555;
+    font-size:16px;
+}
+
+/* TENTANG */
+.about{
+    padding:40px;
+}
+.about h2{
+    margin-bottom:20px;
+    color:#1565c0;
+}
+.about-box{
+    background:#eef5ff;
+    border-left:5px solid #1565c0;
+    padding:25px;
+    border-radius:10px;
+    line-height:1.8;
+    color:#444;
+}
+
+/* FOOTER */
+.footer{
+    background:#1565c0;
+    color:white;
+    padding:50px 50px 0;
+    margin-top:20px;
+}
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:50px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+.footer-brand{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:17px;
+    font-weight:bold;
+}
+.footer-desc{
+    font-size:14px;
+    line-height:1.8;
+    opacity:0.82;
+}
+.footer-badge{
+    display:inline-block;
+    background:rgba(255,255,255,0.15);
+    border-radius:8px;
+    padding:8px 14px;
+    font-size:13px;
+    opacity:0.9;
+    width:fit-content;
+}
+.footer-col h4{
+    font-size:15px;
+    font-weight:bold;
+    margin-bottom:18px;
+    padding-bottom:8px;
+    border-bottom:2px solid rgba(255,255,255,0.3);
+}
+.footer-col ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.footer-col ul li a{
+    text-decoration:none;
+    color:rgba(255,255,255,0.82);
+    font-size:14px;
+    transition:0.2s;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.footer-col ul li a:hover{
+    color:white;
+    padding-left:4px;
+}
+.footer-bottom{
+    padding:18px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    opacity:0.7;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.footer{
+    padding:40px 24px 0;
+}
+.footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+}
+.footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+}
+.navbar{
+    flex-direction:column;
+    gap:15px;
+}
+.hero{
+    flex-direction:column;
+    padding:40px 30px;
+}
+.hero-text{
+    max-width:100%;
+}
+.hero h1{
+    font-size:28px;
+}
+.hero-illustration{
+    flex:none;
+    width:100%;
+}
+.stats{
+    grid-template-columns:1fr;
+}
+.stat-box{
+    border-right:none;
+    border-bottom:1px solid #ddd;
+}
+.stat-box:last-child{
+    border-bottom:none;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="21" cy="21" r="19.5" fill="none" stroke="#1565c0" stroke-width="2"/>
+            <circle cx="21" cy="21" r="16.5" fill="#1565c0"/>
+            <circle cx="21" cy="21" r="13.5" fill="none" stroke="white" stroke-width="0.8" opacity="0.2"/>
+            <rect x="11" y="18" width="20" height="6" rx="1.5" fill="white"/>
+            <rect x="16" y="12" width="10" height="18" rx="1.5" fill="white"/>
+        </svg>
+        WebGIS RS Lampung Utara
+    </div>
+    <div class="menu">
+        <a href="beranda.html">Beranda</a>
+        <a href="informasi.html">Informasi</a>
+        <a href="peta.html">Peta</a>
+        <!-- FIX: path naik satu level karena beranda.html ada di folder Pages/ -->
+        <a href="../index.html" class="btn-home" title="Kembali ke Halaman Utama">&#127968;</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <div class="badge">🗺 Sistem Informasi Geografis</div>
+        <h1>Persebaran Rumah Sakit<br>Kabupaten Lampung Utara</h1>
+        <p>Temukan lokasi rumah sakit terdekat di Kabupaten Lampung Utara secara cepat, mudah, dan akurat berbasis peta digital interaktif.</p>
+    </div>
+
+    <!-- ILUSTRASI SVG RUMAH SAKIT -->
+    <div class="hero-illustration">
+        <svg viewBox="0 0 360 280" width="360" height="280" xmlns="http://www.w3.org/2000/svg">
+            <rect width="360" height="280" fill="none"/>
+            <rect x="80" y="110" width="200" height="140" rx="4" fill="white" opacity="0.95"/>
+            <rect x="70" y="95" width="220" height="22" rx="4" fill="white" opacity="0.85"/>
+            <rect x="140" y="100" width="80" height="12" rx="2" fill="#1565c0" opacity="0.7"/>
+            <rect x="177" y="60" width="6" height="38" rx="1" fill="white" opacity="0.8"/>
+            <polygon points="183,62 205,68 183,74" fill="#e53935" opacity="0.9"/>
+            <rect x="100" y="125" width="28" height="22" rx="3" fill="#bbdefb" opacity="0.8"/>
+            <rect x="145" y="125" width="28" height="22" rx="3" fill="#bbdefb" opacity="0.8"/>
+            <rect x="190" y="125" width="28" height="22" rx="3" fill="#bbdefb" opacity="0.8"/>
+            <rect x="235" y="125" width="28" height="22" rx="3" fill="#bbdefb" opacity="0.8"/>
+            <rect x="100" y="160" width="28" height="22" rx="3" fill="#bbdefb" opacity="0.8"/>
+            <rect x="145" y="160" width="28" height="22" rx="3" fill="#bbdefb" opacity="0.8"/>
+            <rect x="190" y="160" width="28" height="22" rx="3" fill="#bbdefb" opacity="0.8"/>
+            <rect x="235" y="160" width="28" height="22" rx="3" fill="#bbdefb" opacity="0.8"/>
+            <rect x="155" y="200" width="50" height="50" rx="3" fill="#90caf9" opacity="0.7"/>
+            <line x1="180" y1="200" x2="180" y2="250" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="170" cy="228" r="2.5" fill="white" opacity="0.8"/>
+            <circle cx="190" cy="228" r="2.5" fill="white" opacity="0.8"/>
+            <rect x="168" y="186" width="24" height="5" rx="1" fill="#e53935" opacity="0.9"/>
+            <rect x="172" y="182" width="16" height="13" rx="1" fill="#e53935" opacity="0.9"/>
+            <rect x="174" y="183" width="12" height="11" rx="1" fill="white" opacity="0.9"/>
+            <rect x="148" y="246" width="64" height="6" rx="1" fill="white" opacity="0.5"/>
+            <rect x="142" y="252" width="76" height="5" rx="1" fill="white" opacity="0.4"/>
+            <rect x="0" y="257" width="360" height="23" rx="0" fill="white" opacity="0.12"/>
+            <rect x="30" y="210" width="8" height="45" rx="2" fill="white" opacity="0.4"/>
+            <ellipse cx="34" cy="195" rx="20" ry="22" fill="white" opacity="0.2"/>
+            <ellipse cx="34" cy="195" rx="14" ry="16" fill="white" opacity="0.2"/>
+            <rect x="52" y="220" width="6" height="35" rx="2" fill="white" opacity="0.35"/>
+            <ellipse cx="55" cy="207" rx="15" ry="17" fill="white" opacity="0.18"/>
+            <rect x="310" y="215" width="8" height="40" rx="2" fill="white" opacity="0.4"/>
+            <ellipse cx="314" cy="200" rx="20" ry="22" fill="white" opacity="0.2"/>
+            <ellipse cx="314" cy="200" rx="13" ry="15" fill="white" opacity="0.2"/>
+            <rect x="330" y="222" width="6" height="33" rx="2" fill="white" opacity="0.35"/>
+            <ellipse cx="333" cy="210" rx="14" ry="16" fill="white" opacity="0.18"/>
+            <rect x="18" y="232" width="65" height="30" rx="5" fill="white" opacity="0.9"/>
+            <polygon points="83,232 95,240 95,262 83,262" fill="#90caf9" opacity="0.8"/>
+            <circle cx="35" cy="263" r="8" fill="white" opacity="0.6"/>
+            <circle cx="35" cy="263" r="4" fill="#1565c0" opacity="0.5"/>
+            <circle cx="72" cy="263" r="8" fill="white" opacity="0.6"/>
+            <circle cx="72" cy="263" r="4" fill="#1565c0" opacity="0.5"/>
+            <rect x="30" y="240" width="30" height="8" rx="2" fill="#e53935" opacity="0.8"/>
+            <rect x="41" y="234" width="8" height="20" rx="2" fill="#e53935" opacity="0.8"/>
+            <rect x="28" y="230" width="12" height="5" rx="2" fill="#e53935" opacity="0.9"/>
+            <rect x="58" y="230" width="12" height="5" rx="2" fill="#1565c0" opacity="0.9"/>
+            <circle cx="320" cy="80" r="8" fill="none" stroke="white" stroke-width="2.5" opacity="0.5"/>
+            <line x1="320" y1="88" x2="320" y2="105" stroke="white" stroke-width="2.5" opacity="0.45" stroke-linecap="round"/>
+            <line x1="320" y1="105" x2="308" y2="112" stroke="white" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+            <circle cx="308" cy="114" r="4" fill="white" opacity="0.45"/>
+            <rect x="22" y="68" width="30" height="9" rx="2" fill="white" opacity="0.25"/>
+            <rect x="28" y="62" width="18" height="21" rx="2" fill="white" opacity="0.25"/>
+            <circle cx="260" cy="55" r="5" fill="white" opacity="0.4"/>
+            <circle cx="275" cy="48" r="3.5" fill="white" opacity="0.3"/>
+            <circle cx="250" cy="44" r="4" fill="white" opacity="0.35"/>
+            <line x1="250" y1="44" x2="260" y2="55" stroke="white" stroke-width="1" opacity="0.3"/>
+            <line x1="260" y1="55" x2="275" y2="48" stroke="white" stroke-width="1" opacity="0.3"/>
+            <path d="M260,28 C265,28 270,33 270,39 C270,47 260,58 260,58 C260,58 250,47 250,39 C250,33 255,28 260,28 Z" fill="white" opacity="0.35"/>
+            <circle cx="260" cy="39" r="5" fill="#1565c0" opacity="0.6"/>
+        </svg>
+    </div>
+</section>
+
+<!-- STATISTIK -->
+<section class="stats">
+    <div class="stat-box">
+        <h2>6</h2>
+        <p>Total RS</p>
+    </div>
+    <div class="stat-box">
+        <h2>23</h2>
+        <p>Jumlah Kecamatan</p>
+    </div>
+    <div class="stat-box">
+        <h2>RSU</h2>
+        <p>Jenis Rumah Sakit</p>
+    </div>
+</section>
+
+<!-- TENTANG -->
+<section class="about">
+    <h2>Tentang Sistem</h2>
+    <div class="about-box">
+        WebGIS ini menyajikan informasi spasial persebaran rumah sakit di Kabupaten Lampung Utara.
+        Data mencakup lokasi rumah sakit yang tersebar pada berbagai kecamatan sehingga dapat
+        membantu masyarakat dalam memperoleh informasi fasilitas kesehatan serta mendukung
+        pengambilan keputusan di bidang kesehatan.
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-grid">
+
+        <!-- Kolom 1: Brand -->
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <svg width="36" height="36" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="21" cy="21" r="19.5" fill="none" stroke="white" stroke-width="2"/>
+                    <circle cx="21" cy="21" r="16.5" fill="white" opacity="0.2"/>
+                    <rect x="11" y="18" width="20" height="6" rx="1.5" fill="white"/>
+                    <rect x="16" y="12" width="10" height="18" rx="1.5" fill="white"/>
+                </svg>
+                WebGIS RS Lampung Utara
+            </div>
+            <p class="footer-desc">
+                Platform pemetaan digital persebaran rumah sakit di Kabupaten Lampung Utara. 
+                Dibangun untuk mendukung akses informasi fasilitas kesehatan masyarakat secara 
+                spasial dan transparan.
+            </p>
+            <div class="footer-badge">
+                📊 Sumber data: Dinas Kesehatan Lampung Utara &amp; BPS 2026
+            </div>
+        </div>
+
+        <!-- Kolom 2: Navigasi -->
+        <div class="footer-col">
+            <h4>Navigasi</h4>
+            <ul>
+                <li><a href="beranda.html">🏥 Beranda</a></li>
+                <li><a href="informasi.html">📋 Informasi</a></li>
+                <li><a href="peta.html">📍 Peta Persebaran</a></li>
+                <!-- FIX: path naik satu level -->
+                <li><a href="../index.html">🏠 Kembali ke Halaman Utama</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <span>© 2026 WebGIS Persebaran Rumah Sakit Kabupaten Lampung Utara</span>
+    </div>
+</footer>
+
+</body>
+</html>

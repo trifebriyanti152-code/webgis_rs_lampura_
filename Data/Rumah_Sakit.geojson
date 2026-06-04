@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "rumah_sakit",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "No": 1, "X": 104.9148, "Y": -4.85093, "Nama": "RS Candimas Medical Center", "Kode": 1806038, "Jenis": "RSU", "Tipe": "D", "Alamat": "Jl. Lintas Sumatera No. 12, Kelurahan Kalibalangan, Kecamatan Abung Selatan, Kabupaten Lampung Utara, Lampung 34581", "Foto": null }, "geometry": { "type": "Point", "coordinates": [ 104.9148, -4.85093 ] } },
+{ "type": "Feature", "properties": { "No": 2, "X": 104.8852, "Y": -4.83958, "Nama": "RS Umum Handayani", "Kode": 1806035, "Jenis": "RSU", "Tipe": "C", "Alamat": "Jl. Soekarno - Hatta No. 94, Kelurahan Tanjung Aman, Kecamatan Kotabumi Selatan, Kabupaten Lampung Utara, Lampung 34511", "Foto": null }, "geometry": { "type": "Point", "coordinates": [ 104.8852, -4.83958 ] } },
+{ "type": "Feature", "properties": { "No": 3, "X": 104.54724, "Y": -4.89555, "Nama": "RS Medika Insani", "Kode": 1806039, "Jenis": "RSU", "Tipe": "C", "Alamat": "Jl. Sumber Jaya No. 667, Desa Tanjung Baru, Kecamatan Bukit\nKemuning, Kabupaten Lampung Utara, Lampung 34564", "Foto": null }, "geometry": { "type": "Point", "coordinates": [ 104.54724, -4.89555 ] } },
+{ "type": "Feature", "properties": { "No": 4, "X": 104.87978, "Y": -4.82786, "Nama": "RS Maria Regina", "Kode": 1806037, "Jenis": "RSU", "Tipe": "C", "Alamat": "Jl. Abdoel Moeloek No. 119, Kelurahan Tanjung Aman, Kecamatan Kotabumi Selatan, Kabupaten Lampung Utara, Lampung 34511", "Foto": null }, "geometry": { "type": "Point", "coordinates": [ 104.87978, -4.82786 ] } },
+{ "type": "Feature", "properties": { "No": 5, "X": 104.89139, "Y": -4.83254, "Nama": "RS Umum Daerah May Jen HM Ryacudu", "Kode": 1806013, "Jenis": "RSU", "Tipe": "C", "Alamat": "Jl. Jend.Sudirman No. 12, Kelurahan Tanjung Harapan, Kecamatan Kotabumi Selatan, Kabupaten Lampung Utara, Lampung 34511", "Foto": null }, "geometry": { "type": "Point", "coordinates": [ 104.89139, -4.83254 ] } },
+{ "type": "Feature", "properties": { "No": 6, "X": 104.96326, "Y": -4.87439, "Nama": "RS Umum Hi. Muhammad Yusuf", "Kode": 1806036, "Jenis": "RSU", "Tipe": "D", "Alamat": "Jl. Lintas Sumatera No. 12, Kelurahan Kalibalangan, Kecamatan\nAbung Selatan, Kabupaten Lampung Utara, Lampung 34581", "Foto": null }, "geometry": { "type": "Point", "coordinates": [ 104.96326, -4.87439 ] } }
+]
+}
