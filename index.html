@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile Mahasiswa</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(to right, #1e3c72, #2a5298);
+}
+
+/* KOTAK UTAMA */
+.container{
+    width:900px;
+    height:450px;
+    display:flex;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* KIRI */
+.left{
+    width:55%;
+    background:white;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+    text-align:center;
+}
+
+/* KOTAK JUDUL */
+.title-box{
+    background:#0072ff;
+    padding:10px 25px;
+    border-radius:10px;
+    margin-bottom:30px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.title-box h1{
+    color:white;
+    font-size:22px;
+    letter-spacing:2px;
+}
+
+/* TEKS */
+.left p{
+    font-size:18px;
+    margin:12px 0;
+}
+
+/* KANAN */
+.right{
+    width:45%;
+    background:#4facfe;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* FOTO */
+.right img{
+    width:220px;
+    height:220px;
+    border-radius:15px;
+    object-fit:cover;
+    border:5px solid white;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:20px;
+    text-decoration:none;
+    background:white;
+    color:#1e3c72;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1e3c72;
+    color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- KIRI -->
+    <div class="left">
+
+        <!-- JUDUL -->
+        <div class="title-box">
+            <h1>PROFILE MAHASISWA</h1>
+        </div>
+
+        <p><b>Nama :</b> Tri Febriyanti</p>
+
+        <p><b>NPM :</b> 2313034017</p>
+
+        <p><b>Prodi :</b> Pendidikan Geografi</p>
+
+        <p><b>Angkatan :</b> 2023</p>
+
+    </div>
+
+    <!-- KANAN -->
+    <div class="right">
+
+        <!-- FOTO -->
+        <img src="Assets/foto_profile.jpeg" alt="Foto Profile">
+
+        <!-- BUTTON KE BIODATA -->
+        <a href="Pages/biodata.html" class="btn">
+            Biodata Diri
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
